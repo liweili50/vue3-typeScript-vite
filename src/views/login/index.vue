@@ -12,17 +12,15 @@
 import { ref, onMounted } from "vue";
 import { User } from "../../models/User";
 import { useRouter } from "vue-router";
-import axios from "axios";
+import { doLogin } from "../../api/user";
 
 const router = useRouter();
 const login = (user: any) => {
-  axios
-    .post("/api/auth/local", {
-      identifier: user.name,
-      password: user.password,
-    })
-    .then(function (response) {
-      console.log(response);
+  doLogin({
+    identifier: user.name,
+    password: user.password,
+  })
+    .then(function (res) {
       router.push("/table");
     })
     .catch(function (error) {
