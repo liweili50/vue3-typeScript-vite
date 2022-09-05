@@ -10,7 +10,7 @@ const router = createRouter({
             component: Layout,
             children: [
                 { path: '/dashboard', component: () => import('../views/dashboard/index.vue') },
-
+                { path: '/table', component: () => import('../views/table/index.vue') },
             ]
         },
         { path: '/login', component: () => import('../views/login/index.vue') },
